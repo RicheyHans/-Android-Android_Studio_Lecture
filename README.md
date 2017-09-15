@@ -17,5 +17,5 @@
 #### #Lecture 04(170915)
   * Animation 적용 및 속성활용 review
   * 예제 프로젝트
-    * Basic Caculator develoment with Flying Buttons [link]((https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/BasicLayout/BasicCaculator.md))
-    * Using Basic Widgets / Spinner [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/BasicWidget_170915)
+    * Basic Caculator develoment with Flying Buttons [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/BasicLayout/BasicCaculator.md)
+    * Using Basic Widgets / Spinner [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/BasicWidget_170915/BasicWidget_170915.md)
