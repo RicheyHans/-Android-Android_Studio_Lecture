@@ -14,3 +14,10 @@
   * Animation 적용 및 속성 활용
   * 예제 프로젝트
     * Moving Button Activity [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Animation_170914after/MovingButtonActivity.md)
+#### #Lecture 04(170915)
+  * Animation 적용 및 속성활용 review
+  * 예제 프로젝트
+    * Flying Buttons
+    * Basic Caculator develoment with Flying Buttons
+    * Using Basic Widgets
+    * Using Spinner

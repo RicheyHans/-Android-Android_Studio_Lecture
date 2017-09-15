@@ -1,10 +1,16 @@
 package com.example.mcbud.basiclayout;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +23,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
     Button btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnPlus, btnMinus, btnMultiply, btnDivede, btnC, btnResult;
     TextView textPreview, textResult;
     Double result = 0.0;
+    private ConstraintLayout stage;
 
     //int height;
 
@@ -54,6 +61,7 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         // 텍스트 창
         textPreview = (TextView)findViewById(R.id.textPreview);
         textResult = (TextView)findViewById(R.id.textResult);
+        stage = (ConstraintLayout)findViewById(R.id.stage);
         //btn0.setHeight(height);
     }
     private void initListener(){
@@ -78,32 +86,78 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        switch(v.getId()){
-            case R.id.btn_0: append("0"); break;
-            case R.id.btn_1: append("1"); break;
-            case R.id.btn_2: append("2"); break;
-            case R.id.btn_3: append("3"); break;
-            case R.id.btn_4: append("4"); break;
-            case R.id.btn_5: append("5"); break;
-            case R.id.btn_6: append("6"); break;
-            case R.id.btn_7: append("7"); break;
-            case R.id.btn_8: append("8"); break;
-            case R.id.btn_9: append("9"); break;
-            case R.id.btn_plus: append("+"); break;
-            case R.id.btn_minus: append("-"); break;
-            case R.id.btn_multiply: append("*"); break;
-            case R.id.btn_divide: append("/"); break;
-            case R.id.btn_c:
-                textPreview.setText("0");
-                textResult.setText("0");
-                result = 0.0;
-                break;
-            case R.id.btn_result:
-                result = calc();
-                textResult.setText(""+result);
-                textPreview.setText("0");
-                result = 0.0;
-                break;
+        if (v instanceof Button) {
+            switch (v.getId()) {
+                case R.id.btn_0:
+                    append("0");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_1:
+                    append("1");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_2:
+                    append("2");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_3:
+                    append("3");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_4:
+                    append("4");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_5:
+                    append("5");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_6:
+                    append("6");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_7:
+                    append("7");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_8:
+                    append("8");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_9:
+                    append("9");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_plus:
+                    append("+");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_minus:
+                    append("-");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_multiply:
+                    append("*");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_divide:
+                    append("/");
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_c:
+                    textPreview.setText("0");
+                    textResult.setText("0");
+                    result = 0.0;
+                    buttonEffect(v);
+                    break;
+                case R.id.btn_result:
+                    result = calc();
+                    buttonEffect(v);
+                    textResult.setText("" + result);
+                    textPreview.setText("0");
+                    result = 0.0;
+                    break;
+            }
         }
     }
 
@@ -124,8 +178,6 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
                     splitList.remove(i - 1);
                     splitList.remove(i - 1);
                     splitList.add(i - 1, String.valueOf(tempResult));
-
-
                     //break;
                 } else {
                     double tempResult = (Double.parseDouble(splitList.get(i - 1))) / (Double.parseDouble(splitList.get(i + 1)));
@@ -217,5 +269,62 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
             }
         }
         textPreview.append(str);
+    }
+
+    private void buttonEffect(View v){
+        Button original = (Button)v;
+        final Button dummy = new Button(Calculator.this);
+
+
+
+        dummy.setText(original.getText().toString());  // 텍스트 카피
+        dummy.setWidth(original.getWidth());
+        dummy.setHeight(original.getHeight());
+        dummy.setBackgroundColor(Color.RED);
+
+        LinearLayout parent = (LinearLayout)original.getParent();
+
+        dummy.setX( original.getX() + parent.getX());
+        dummy.setY( original.getY() + parent.getY());
+
+        stage.addView(dummy);
+
+        ObjectAnimator aniY = ObjectAnimator.ofFloat(
+                dummy, "y", textPreview.getY()
+        );
+        ObjectAnimator aniX = ObjectAnimator.ofFloat(
+                dummy, "x", textPreview.getX()
+        );
+        ObjectAnimator aniR = ObjectAnimator.ofFloat(
+                dummy, "rotation", 720
+        );
+
+        AnimatorSet aniSet = new AnimatorSet();
+        aniSet.playTogether(aniY, aniX, aniR);
+        aniSet.setDuration(1000);
+
+        // 애니메이션 종료 체크를 위한 리스너
+        aniSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                stage.removeView(dummy);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
+        aniSet.start();
     }
 }
