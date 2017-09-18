@@ -275,8 +275,6 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
         Button original = (Button)v;
         final Button dummy = new Button(Calculator.this);
 
-
-
         dummy.setText(original.getText().toString());  // 텍스트 카피
         dummy.setWidth(original.getWidth());
         dummy.setHeight(original.getHeight());

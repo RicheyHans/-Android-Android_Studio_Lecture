@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AniButton"> <!-- 재정의할 객체 이름-->
+        <attr name="animation" format="string"/> <!--리소스랑 스트링 들어가는데, 리소스id는 at해서 컬러 프라이머리등을 가져오는거고 string은 직접-->
+        <attr name="delimiter" format="string"/>
+    </declare-styleable>
+</resources>

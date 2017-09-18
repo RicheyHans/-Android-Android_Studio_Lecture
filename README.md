@@ -19,3 +19,7 @@
   * 예제 프로젝트
     * Basic Caculator develoment with Flying Buttons [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/BasicLayout/BasicCaculator.md)
     * Using Basic Widgets / Spinner [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/BasicWidget_170915/BasicWidget_170915.md)
+#### #Lecture 05(170918)
+  * Custom View with Canvas, Paint
+  * Example Project
+    * Basic Picture Painter
