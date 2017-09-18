@@ -55,16 +55,17 @@ public class DrawView extends View {
         // 1. 화면에 터치가 되면...
         // 2. 연속해서 그림을 그려준다
         // 2.1. 터치된 좌표에 작은 동그라미를 그려준다.
-        for(PathTool tool:paths){
-            paint.setColor(tool.getColor());
-            canvas.drawPath(tool, paint);
-        }
         // if(x > -1 && y > -1){
         //    for(int i=0 ; i<xs.size() ; i++) {
         //        canvas.drawCircle(xs.get(i), ys.get(i), r, paint);
         //    }
         // }
+        for(PathTool tool:paths){
+            paint.setColor(tool.getColor());
+            canvas.drawPath(tool, paint);
+        }
     }
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -98,15 +99,11 @@ public class DrawView extends View {
 
 class PathTool extends Path {
     int color;
-    public PathTool(){
-
-    }
-
+    public PathTool(){  }
     public void setColor(int color){
         this.color = color;
     }
     public int getColor(){
         return this.color;
     }
-
 }
