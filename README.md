@@ -22,4 +22,4 @@
 #### #Lecture 05(170918)
   * Custom View with Canvas, Paint
   * Example Project
-    * Basic Picture Painter
+    * Basic Picture Painter [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170918/170918_Android.md)
