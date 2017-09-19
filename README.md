@@ -1,6 +1,6 @@
 # [Android] Android Studio School Lecture
 
-패스트캠퍼스 안드로이드 스튜디오 정규 강의
+Android Studio Tutorial Course
 
 #### #Lecture 01(170912)
   * 기본 레이아웃 운용
@@ -26,4 +26,5 @@
 #### #Lecture 06(170919)
   * List View
   * Example Project
-    * Basic Article Board [link]()
+    * Basic Article Board [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170919/170919_Android.md)
+    * Article Board Mini Project (_in Progress_)
