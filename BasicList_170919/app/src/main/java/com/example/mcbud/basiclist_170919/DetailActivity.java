@@ -16,8 +16,8 @@ public class DetailActivity extends AppCompatActivity {
 
         /*
         // 인텐트에서 키 밸류의 번들을 추출하고
-        Bundle bundle = intent.getExtras();
         // 그 번들에서 목적 값을 추출한다.
+        Bundle bundle = intent.getExtras();
         String result = bundle.getString("valueKey");
         */
 
