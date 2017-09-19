@@ -1,15 +1,19 @@
 package com.example.mcbud.customview;
 
 import android.graphics.Color;
+import android.graphics.Path;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 
 public class DrawActivity extends AppCompatActivity {
 
+
     FrameLayout stage;
+    SeekBar seekBar;
     RadioGroup radioColor;
     DrawView draw;
 
@@ -19,6 +23,7 @@ public class DrawActivity extends AppCompatActivity {
         setContentView(R.layout.activity_draw);
 
         radioColor = (RadioGroup) findViewById(R.id.radioColor);
+        seekBar = (SeekBar) findViewById(R.id.seekLine);
         stage = (FrameLayout)findViewById(R.id.stage);
         draw = new DrawView(this);
 
@@ -30,18 +35,48 @@ public class DrawActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
                 switch(i){
                     case R.id.radioBlack:
-                        draw.setColor(Color.BLACK);
+                        draw.setResources(Color.BLACK, seekBar.getProgress());
                         break;
                     case R.id.radioCyan:
-                        draw.setColor(Color.CYAN);
+                        draw.setResources(Color.CYAN, seekBar.getProgress());
                         break;
                     case R.id.radioYellow:
-                        draw.setColor(Color.YELLOW);
+                        draw.setResources(Color.YELLOW, seekBar.getProgress());
                         break;
                     case R.id.radioMagenta:
-                        draw.setColor(Color.MAGENTA);
+                        draw.setResources(Color.MAGENTA, seekBar.getProgress());
                         break;
                 }
+            }
+        });
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                switch (radioColor.getCheckedRadioButtonId()){
+                    case R.id.radioBlack:
+                        draw.setResources(Color.BLACK, progress);
+                        break;
+                    case R.id.radioCyan:
+                        draw.setResources(Color.CYAN, progress);
+                        break;
+                    case R.id.radioYellow:
+                        draw.setResources(Color.YELLOW, progress);
+                        break;
+                    case R.id.radioMagenta:
+                        draw.setResources(Color.MAGENTA, progress);
+                        break;
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }

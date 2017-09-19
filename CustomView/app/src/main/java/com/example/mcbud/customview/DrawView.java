@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.SeekBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,12 +39,13 @@ public class DrawView extends View {
     private void init(){
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(5f);
-        setColor(Color.BLACK);
+        setResources(Color.BLACK, 0f);
     }
 
-    public void setColor(int color){
+    public void setResources(int color, float progress){
         PathTool tool = new PathTool();
         tool.setColor(color);
+        tool.setStroke(progress);
         currentPath = tool;
         paths.add(tool);
     }
@@ -61,6 +63,7 @@ public class DrawView extends View {
         //    }
         // }
         for(PathTool tool:paths){
+            paint.setStrokeWidth(tool.getStroke());
             paint.setColor(tool.getColor());
             canvas.drawPath(tool, paint);
         }
@@ -99,11 +102,21 @@ public class DrawView extends View {
 
 class PathTool extends Path {
     int color;
+    float stroke;
+
     public PathTool(){  }
+
+    public float getStroke() {
+        return this.stroke;
+    }
+
+    public void setStroke(float stroke) { this.stroke = stroke; }
+
     public void setColor(int color){
         this.color = color;
     }
     public int getColor(){
         return this.color;
     }
+
 }
