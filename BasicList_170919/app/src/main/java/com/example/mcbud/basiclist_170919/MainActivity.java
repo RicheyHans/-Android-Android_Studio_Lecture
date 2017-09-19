@@ -1,6 +1,7 @@
 package com.example.mcbud.basiclist_170919;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // 3. 아답터와 리스트뷰를 연결
         listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(adapter);
-
     }
 }
 
@@ -73,10 +73,11 @@ class CustomAdapter extends BaseAdapter{
         if(view == null) {  // 아이템 view를 재사용하기 위해 null 체크를 해준다.
             view = LayoutInflater.from(context).inflate(R.layout.list_item, null);
             // 아이템이 최초 호출될 경우는 Holder에 위젯들을 담고
-            holder = new Holder();
-            holder.textview = (TextView)view.findViewById(R.id.textView);
+            holder = new Holder(view);
+
             // 홀더를 View에 붙여놓는다.
             view.setTag(holder);
+
         } else {
             // View에 붙어있는 홀더를 가져온다.
             holder = (Holder)view.getTag();
@@ -97,5 +98,23 @@ class CustomAdapter extends BaseAdapter{
 }
 
 class Holder{
+
     TextView textview;
+
+    public Holder(View view){
+        textview = (TextView)view.findViewById(R.id.textView);
+        setClickListener();
+    }
+
+    public void setClickListener(){
+        textview.setOnClickListener(new View.OnClickListener() {
+            // 화면에 보여지는 View는 기본적으로 자신이 속한 컴포넌트의 context를 그대로 가지고 있다.
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                intent.putExtra("valueKey", textview.getText());
+                view.getContext().startActivity(intent);
+            }
+        });
+    }
 }
