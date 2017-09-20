@@ -28,3 +28,6 @@ Android Studio Tutorial Course
   * Example Project
     * Basic Article Board [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170919/170919_Android.md)
     * Article Board Mini Project (_in Progress_)
+#### #Lecture 07(170920)    
+  * Example Project
+    * Basic Article Board(file version) [link]()
