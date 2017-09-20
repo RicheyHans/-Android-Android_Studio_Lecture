@@ -58,14 +58,6 @@ public class FileUtil {
         return sb.toString();
     }
 
-
-    /**
-     * 파일 쓰기 함수
-     * @param context 컨텍스트
-     * @param filename 파일이름
-     * @param content 내용
-     * @throws IOException
-     */
     public static void write(Context context,String filename, String content)
             throws IOException {
         FileOutputStream fos = null;

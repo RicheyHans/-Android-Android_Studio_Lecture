@@ -48,8 +48,7 @@ public class ListAdapter extends BaseAdapter {
         Holder holder = null;
         if(view == null){ // 뷰가 최초 생성될경우
             // 1. 뷰 생성
-            view = LayoutInflater.from(context)
-                    .inflate(R.layout.item_list, null);
+            view = LayoutInflater.from(context).inflate(R.layout.item_list, null);
             // 2. 홀더생성
             holder = new Holder(view);
             // 3. 뷰에 홀더를 붙인다
@@ -84,19 +83,23 @@ class Holder {
         textNo = view.findViewById(R.id.textNo);
         textTitle = view.findViewById(R.id.textTitle);
         textDate = view.findViewById(R.id.textDate);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), DetailActivity.class);
+
                 intent.putExtra("position", position);
                 intent.putExtra("title",textTitle.getText());
                 intent.putExtra("author", author);
                 intent.putExtra("content", content);
                 intent.putExtra("datetime", textDate.getText());
+
                 view.getContext().startActivity(intent);
             }
         });
     }
+
     public void setAuthor(String author){
         this.author = author;
     }

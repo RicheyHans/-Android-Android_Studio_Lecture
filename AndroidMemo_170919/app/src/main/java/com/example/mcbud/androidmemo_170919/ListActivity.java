@@ -29,23 +29,22 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
         initView();
         initListener();
         init();
     }
-
+    //Log.d("ListActivity","called init()");
     // 목록을 초기화
     private void init(){
-        Log.d("ListActivity","called init()");
         ArrayList<Memo> list = loadData();
         ListAdapter adapter = new ListAdapter(this, list);
         listView.setAdapter(adapter);
     }
-
+    // 파일목록에서 파일을 하나씩 꺼낸후에
+    // Memo 클래스로 변환한후 result 에 담는다
     private ArrayList<Memo> loadData(){
         ArrayList<Memo> result = new ArrayList<>();
-        // 파일목록에서 파일을 하나씩 꺼낸후에
-        // Memo 클래스로 변환한후 result 에 담는다
         for(File item : getFilesDir().listFiles()){
             try {
                 String text = FileUtil.read(this, item.getName());
@@ -58,14 +57,14 @@ public class ListActivity extends AppCompatActivity {
         return result;
     }
 
-    private static final int WRITE_ACITIVTY = 12345;
+    private static final int WRITE_ACTIVITY = 12345;
 
     private void initListener() {
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ListActivity.this, WriteActivity.class);
-                startActivityForResult(intent, WRITE_ACITIVTY);
+                startActivityForResult(intent, WRITE_ACTIVITY);
                 // startActivity(intent);
             }
         });
@@ -76,7 +75,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch(requestCode){
-            case WRITE_ACITIVTY:
+            case WRITE_ACTIVITY:
                 if(resultCode == RESULT_OK) {
                     init();
                 }
