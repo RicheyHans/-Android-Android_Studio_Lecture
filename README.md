@@ -31,3 +31,7 @@ Android Studio Tutorial Course
   * Activity Life Cycle
   * Example Project (_in progress_)
     * Basic Article Board(file version)  [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170920/170920_Android.md)
+#### #Lecture 08(170921)
+  * Singletone
+  * Example Project (_in progress_)
+    * Basic Article Board(DB version) [link]()
