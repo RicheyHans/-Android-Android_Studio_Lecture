@@ -28,7 +28,9 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
         initListener();
         init();
     }
+
     MemoDAO dao = null;
+
     private void init(){
         dao = new MemoDAO(this);
     }
@@ -48,8 +50,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
-
 
     private void createAfterRead(){
         // Memo 데이터 화면에서 가져오기
@@ -95,7 +95,6 @@ public class ListActivity extends AppCompatActivity implements View.OnClickListe
             textResult.append(memo.toString());
         }
     }
-
 
     private void initListener() {
         btnCreate.setOnClickListener(this);
