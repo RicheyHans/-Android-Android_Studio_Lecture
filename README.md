@@ -34,7 +34,7 @@ Android Studio Tutorial Course
 #### #Lecture 08(170921)
   * Singletone
   * Example Project (_in progress_)
-    * Basic Article Board(DB-SQLite version) [link]()
+    * Basic Article Board(DB-SQLite version) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170921/170921_Android.md)
 #### #Lecture 09(170922)
   * Recycler View
   * Example Project(_in progres_)
