@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.example.mcbud.androidmemoorm_170922.DrawActivity">
 
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName" />
+
     <Button
         android:id="@+id/btnCap"
         android:layout_width="73dp"

@@ -1,31 +1,83 @@
 package com.example.mcbud.androidmemoorm_170922;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.mcbud.androidmemoorm_170922.dao.PicNoteDAO;
 import com.example.mcbud.androidmemoorm_170922.model.PicNote;
+import com.example.mcbud.androidmemoorm_170922.util.PermissionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * RecyclerView 를 사용한 목록 만들기
+ *
+ * 0. 화면만들기
+ *
+ * 1. 데이터를 정의
+ *
+ * 2. 아답터를 재정의
+ *
+ * 3. 재정의한 아답터를 생성하면서 데이터를 담는다
+ *
+ * 4. 아답터와 RecyclerView 컨테이너를 연결
+ *
+ * 5. RecyclerView 에 레이아웃매니저를 설정
+ *
+ */
 
 public class MainActivity extends AppCompatActivity {
+    // 0. 권한 요청코드
+    private static final int REQ_CODE = 999;
+    // 1. 권한 정의
+    private String[] permissions = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
 
+    PermissionUtil pUtil;
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        init();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new ArrayList<>();
-        init();
+        pUtil = new PermissionUtil(REQ_CODE, permissions);
+        if(pUtil.checkPermission(this)){
+            init();
+        }
     }
 
-    // layout에서 메서드를 직접 호출한다.
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(pUtil.afterPermissionResult(requestCode, grantResults)){
+            init();
+        }else{
+            Toast.makeText(this, "승인 하셔야지만 앱을 실행할 수 있습니다.", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
+
+    /**
+     * 레이아웃에서 함수를 직접 호출한다
+     * @param view
+     */
     public void openDraw(View view){
         Intent intent = new Intent(this, DrawActivity.class);
         startActivity(intent);
@@ -33,30 +85,41 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         PicNoteDAO dao = new PicNoteDAO(this);
-
-        //리사이클러 뷰를 사용한 목록 만들기
-        // 0. 화면을 정의한다.
-        // 1. 데이터를 정의한다.
-        /*
-        for(int i = 0; i < 1000; i++){
-            PicNote picNote = new PicNote();
-            picNote.setTitle("안녕하세요"+i);
-            picNote.setDatetime(System.currentTimeMillis());
-            // DB에 넣은 후
-            dao.create(picNote);
-        }*/
-        // DB에서 읽어온다.
+        //* 1. 데이터를 정의
+        // DB에 테스트 데이터 넣기
+//        for(int i=0; i<1000 ; i++){
+//            PicNote picNote = new PicNote();
+//            picNote.setTitle("안녕하세요 "+i);
+//            picNote.setDatetime(System.currentTimeMillis());
+//            // db 에다가 넣은후
+//            dao.create(picNote);
+//        }
+        // db에서 읽어온다.
         List<PicNote> data = dao.readAll();
-        // 2. Adapter를 재정의한다(상속 받는다) - 했음
-        // 3. 재정의한 Adapter를 생성하면서 데이터를 담는다.
+
+        //* 3. 재정의한 아답터를 생성하면서 데이터를 담는다
         CustomAdapter adapter = new CustomAdapter();
         adapter.setData(data);
-        // 4. Adapter와 RecyclerView 컨테이너를 연결한다.
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+        //* 4. 아답터와 RecyclerView 컨테이너를 연결
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adapter);
-        // 5. RecyclerView에 레이아웃 매니저를 생성
+        //* 5. RecyclerView 에 레이아웃매니저를 설정
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // 레이아웃 매니저의 종류
+        // 레이아웃 매니저 종류
+        /*
+        1. LinearLayoutManager
+           - 리사이클러 뷰에서 가장 많이 쓰이는 레이아웃으로 수평, 수직 스크롤을 제공하는 리스트를 만들 수 있다.
+        2. StaggeredGridLayoutManager
+           - 이 레이아웃을 통해 뷰마다 크기가 다른 레이아웃을 만들 수 있다. 마치 Pinterest 같은 레이아웃 구성가능.
+        3. GridLayoutManager
+           - 갤러리(GridView) 같은 격자형 리스트를 만들 수 있습니다.
+        - 사용예시// StaggeredGrid 레이아웃을 사용한다
+            RecyclerView.LayoutManager lm
+                = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+            lm = new LinearLayoutManager(this);
+            lm = new GridLayoutManager(this,3);
+        */
     }
+
 }
