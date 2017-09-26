@@ -44,7 +44,7 @@ Android Studio Tutorial Course
   * Example Project
     * Painter Article Board(with Permissions version)[link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/AndroidMemoORM_170922)
 #### #Lecture 11(170926)
-  * Example Project [link]()
+  * Example Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170926/170926_Android.md)
     * Basic Contact List
     * Basic Gallery
     * Custom Gallery Project
