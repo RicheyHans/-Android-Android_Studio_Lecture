@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         init();
-    }
+    } 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
