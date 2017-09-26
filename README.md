@@ -38,7 +38,7 @@ Android Studio Tutorial Course
 #### #Lecture 09(170922)
   * Recycler View
   * Example Project(_in progres_)
-    * Painter Article Board(DB-ORMLite version) [link]()
+    * Painter Article Board(DB-ORMLite version) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170925/170925_Android.md)
 #### #Lecture 10(170925)
   * Permissions
   * Example Project
