@@ -50,5 +50,5 @@ Android Studio Tutorial Course
     * Custom Gallery Project
 #### #Lecture 12(170927)
   * Exmaple Project [link]()
-    * Basic Fragment
+    * Basic Fragment 1,2
     * Tap Layout
