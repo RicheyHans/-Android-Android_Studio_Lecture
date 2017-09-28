@@ -49,6 +49,6 @@ Android Studio Tutorial Course
     * Basic Gallery
     * Custom Gallery Project
 #### #Lecture 12(170927)
-  * Exmaple Project [link]()
+  * Exmaple Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170927/170927_Android.md)
     * Basic Fragment 1,2
     * Tap Layout
