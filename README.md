@@ -48,3 +48,7 @@ Android Studio Tutorial Course
     * Basic Contact List
     * Basic Gallery
     * Custom Gallery Project
+#### #Lecture 12(170927)
+  * Exmaple Project [link]()
+    * Basic Fragment
+    * Tap Layout
