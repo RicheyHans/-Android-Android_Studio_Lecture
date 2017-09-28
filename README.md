@@ -54,6 +54,6 @@ Android Studio Tutorial Course
     * Tap Layout
 #### #Lecture 13(170928)
   * Example Project
-    * View Pager(flip) [link]()
-    * Thread Basic [link]()
-    * Tetris Project [link]()
+    * View Pager(flip) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ViewPager_170928)
+    * Thread Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ThreadBasic_170928)
+    * Tetris Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Tetris_170928)
