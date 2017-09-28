@@ -52,3 +52,8 @@ Android Studio Tutorial Course
   * Exmaple Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170927/170927_Android.md)
     * Basic Fragment 1,2
     * Tap Layout
+#### #Lecture 13(170928)
+  * Example Project
+    * View Pager(flip) [link]()
+    * Thread Basic [link]()
+    * Tetris Project [link]()
