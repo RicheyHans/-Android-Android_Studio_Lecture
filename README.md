@@ -58,3 +58,6 @@ Android Studio Tutorial Course
     * Thread Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ThreadBasic_170928)
     * Tetris Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Tetris_170928)
 #### #Lecture 14(171010)
+  * Example Project
+    * Rain Drop with Thread [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/RainDrop_171010)
+    * Service Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ServiceBasic_171010)
