@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.FrameLayout;
-
 public class MainActivity extends AppCompatActivity {
     // 0. 게임 세팅
     private static Setting setting;        // 설정값
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         // 1. 그림판을 준비
         initView();
     }
-
     private void setGame(){
         // 0. 화면의 사이즈를 구해서 게임판에 넘긴다
         DisplayMetrics metrics = getResources().getDisplayMetrics();
@@ -34,8 +32,13 @@ public class MainActivity extends AppCompatActivity {
         stage = new Stage(this, setting);
         // 뭔가 그릴것들을 다 준비해놔야 된다.
         stage.init();
-
         container.addView(stage);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 앱이 화면에 보이면 블럭을 동작
+        stage.runBlock();
     }
 
     // 키 패드 연결
@@ -51,4 +54,12 @@ public class MainActivity extends AppCompatActivity {
     public void right(View view){
         stage.right();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // 앱이 화면에서 없어지면 블럭동작을 중단
+        stage.stopBlock();
+    }
 }
+

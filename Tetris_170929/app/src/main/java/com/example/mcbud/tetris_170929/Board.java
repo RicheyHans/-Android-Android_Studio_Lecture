@@ -25,6 +25,13 @@ public class Board implements Block.Parent{
     // 페인트
     Paint paint;
 
+    int colors[] ={
+            Color.RED, Color.BLACK, Color.GREEN
+            , Color.MAGENTA, Color.CYAN, Color.BLUE
+            , Color.GRAY , 0
+            , Color.DKGRAY
+    };
+
     int map[][] =
             {
                     {9,0,0,0,0,0,0,0,0,0,9},
@@ -68,7 +75,9 @@ public class Board implements Block.Parent{
         // 자기 자신 그리기
         for(int v=0; v<map.length ; v++){
             for(int h=0 ; h<map[0].length ; h++){
-                if(map[v][h] > 0){
+                int cellValue = map[v][h];
+                if(cellValue > 0){
+                    paint.setColor(colors[cellValue-1]);
                     canvas.drawRect(
                             ((x + h) * unit),
                             ((y + v) * unit),
@@ -107,6 +116,8 @@ public class Board implements Block.Parent{
         }
         return false;
     }
+    // 현재 블럭의 셀 값을 추출해서
+    // map 에 입력해준다.
     public void addBlockToMap(){
         for(int v=0 ; v<4 ; v++){
             for(int h=0 ; h<4 ; h++){
@@ -128,6 +139,7 @@ public class Board implements Block.Parent{
         }
     }
 
+    // 블럭 충돌검사
     private boolean checkCollision(String command, int value){
         boolean result = true;
 
@@ -166,5 +178,11 @@ public class Board implements Block.Parent{
 
         return result;
     }
+    // map 을 가로축으로 검사해서 셀이 꽉차 있으면 해당 줄을 지우고
+    // 지워진 줄만큼 아래로 이동시킨다.
+    public void lineCheckAndRemove() {
+
+    }
 }
+
 

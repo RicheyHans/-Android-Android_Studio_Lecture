@@ -16,6 +16,8 @@ public class Stage extends View {
     Board board;
     Preview preview;
 
+    boolean RUNNING = true;
+
     public Stage(Context context, Setting setting) {
         super(context);
 
@@ -71,10 +73,13 @@ public class Stage extends View {
         // 새로운 블럭을 Preview에서 가져와서 담는다.
         if(!check) {
             board.addBlockToMap();
+            // board 에 있는 map을 한줄씩 전체줄을 체크해서 꽉 차있으면 삭제후
+            // 한줄씩 아래로 이동
+            board.lineCheckAndRemove();
             addBlockToBoardFromPreview();
             addBlockToPreview();
         }
-        invalidate();
+        postInvalidate();
     }
     public void left() {
         board.left();
@@ -84,5 +89,24 @@ public class Stage extends View {
         board.right();
         invalidate();
     }
-}
+    // 1초에 한번씩 board에 있는 블럭을 아래로 이동시킨다.
+    public void runBlock() {
+        RUNNING = true;
+        new Thread(){
+            public void run(){
+                while(RUNNING) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    down();
+                }
+            }
+        }.start();
+    }
 
+    public void stopBlock(){
+        RUNNING = false;
+    }
+}

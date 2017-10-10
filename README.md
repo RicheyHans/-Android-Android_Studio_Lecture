@@ -57,3 +57,4 @@ Android Studio Tutorial Course
     * View Pager(flip) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ViewPager_170928)
     * Thread Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ThreadBasic_170928)
     * Tetris Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Tetris_170928)
+#### #Lecture 14(171010)
