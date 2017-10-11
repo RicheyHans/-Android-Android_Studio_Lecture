@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,9 +42,9 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_player);
 
         load();
-        initControl();
         initView();
         initViewPager();
+        initControl();
         start();
     }
 
@@ -61,13 +63,19 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    SeekBarThread seekBarThread = null;
     private void setPlayer(){
         // position에 해당하는 현재 아이템을 꺼낸다
         Music.Item item = music.data.get(current);
         Uri musicUri = item.musicUri;
 
-        if(player != null)
+        if(seekBarThread != null)
+            seekBarThread.setStop();
+
+        if(player != null) {
             player.release();
+            player = null;
+        }
 
         // 음악 uri를 사용해서 플레이어 초기화
         player = MediaPlayer.create(this, musicUri); // (context, 음악URI)
@@ -75,7 +83,23 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
         // 옵션
         player.setLooping(false);
 
+        // 화면 세팅
+        String duration = militoSec( player.getDuration() );     // 123456777 => 03:15
+        textDuration.setText(duration);
+        textCurrentTime.setText("00:00");
 
+        seekBar.setMax(player.getDuration());
+
+        seekBarThread = new SeekBarThread(handler);
+        seekBarThread.start();
+    }
+
+    private String militoSec(int mili){
+        int sec = mili / 1000;      // 초 단위 변환
+        int min = sec / 60;         // 분 단위 변환
+        sec = sec % 60;             // 초 산출
+
+        return String.format("%02d", min) + ":" + String.format("%02d", sec);      // 두 자리에 0이 자동으로 붙는 문자열
     }
 
     private void initView(){
@@ -145,7 +169,10 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onDestroy() {
+        if(seekBarThread != null)
+            seekBarThread.setStop();
         // 이 부분이 없을 경우 무조건 백엔드 실행 가능
+
         if(player != null){
             player.release();
         }
@@ -176,4 +203,44 @@ public class PlayerActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
+
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what){
+                case Const.WHAT_SET:
+                    if(player != null) {
+                        int cp = player.getCurrentPosition();
+                        seekBar.setProgress(cp);
+                        textCurrentTime.setText(militoSec(cp));
+                    }
+                    break;
+            }
+        }
+    };
 }
+
+class SeekBarThread extends Thread {
+    private boolean runFlag = true;
+    private Handler handler;
+
+    SeekBarThread(Handler handler){
+        this.handler = handler;
+    }
+
+    public void setStop(){
+           runFlag = false;
+       }
+    public void run(){
+        while(runFlag) {
+            handler.sendEmptyMessage(Const.WHAT_SET);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+
