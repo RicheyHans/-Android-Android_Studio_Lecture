@@ -11,17 +11,21 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         intent = new Intent(this, MyService.class);
     }
+
     // 서비스 시작
     public void start(View view){
         startService(intent);
     }
+
     // 서비스 종료
     public void stop(View view){
         stopService(intent);

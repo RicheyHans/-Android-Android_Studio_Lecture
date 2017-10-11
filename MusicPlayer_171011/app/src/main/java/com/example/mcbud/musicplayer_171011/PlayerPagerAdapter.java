@@ -1,0 +1,69 @@
+package com.example.mcbud.musicplayer_171011;
+
+import android.content.Context;
+import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.mcbud.musicplayer_171011.model.Music;
+
+import org.w3c.dom.Text;
+
+import java.util.List;
+
+/**
+ * Created by mcbud on 2017-10-11.
+ */
+
+public class PlayerPagerAdapter extends PagerAdapter {
+
+    Context context;
+    List<Music.Item> data;
+
+    public PlayerPagerAdapter(Context context, List<Music.Item> data){
+        this.context = context;
+        this.data = data;
+    }
+
+    @Override
+    public int getCount() {
+        return data.size();
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object object) {
+        return view == object;
+    }
+
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+
+        Music.Item item = data.get(position);
+
+        View view = LayoutInflater.from(context).inflate(R.layout.item_player, null);
+
+        ImageView imgAlbum = view.findViewById(R.id.imgAlbum);
+        imgAlbum.setImageURI(item.albumUri);
+
+
+        TextView textTitle = view.findViewById(R.id.textTitle);
+        textTitle.setText(item.title);
+
+        TextView textArtist = view.findViewById(R.id.textArtist);
+        textArtist.setText(item.artist);
+
+        container.addView(view);
+
+        return view;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View)object);
+    }
+
+
+}
