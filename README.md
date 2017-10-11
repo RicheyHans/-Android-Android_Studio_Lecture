@@ -61,3 +61,6 @@ Android Studio Tutorial Course
   * Example Project
     * Rain Drop with Thread [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/RainDrop_171010)
     * Service Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ServiceBasic_171010)
+#### #Lecture 15(171011)
+  * Example Project
+    * Music Player [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer_171011)
