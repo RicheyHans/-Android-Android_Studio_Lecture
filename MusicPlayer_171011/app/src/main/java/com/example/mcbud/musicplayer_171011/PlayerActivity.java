@@ -242,5 +242,3 @@ class SeekBarThread extends Thread {
         }
     }
 }
-
-
