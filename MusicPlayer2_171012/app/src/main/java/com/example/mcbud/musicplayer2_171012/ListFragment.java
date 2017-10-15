@@ -13,6 +13,8 @@ import com.example.mcbud.musicplayer2_171012.domain.Music;
 
 import java.util.List;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by mcbud on 2017-10-12.
  */

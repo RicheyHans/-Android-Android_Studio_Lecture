@@ -29,8 +29,7 @@ import java.util.List;
  *                          SeekBarThread
  */
 
-public class MainActivity extends BaseActivity
-        implements ListFragment.IActivityInteract{
+public class MainActivity extends BaseActivity implements ListFragment.IActivityInteract{
     private ViewPager viewPager;
     private TabLayout tablayout;
 
@@ -45,6 +44,7 @@ public class MainActivity extends BaseActivity
         conTabWithViewPager();
         checkPlayer();
     }
+
     void checkPlayer(){
         if(Player.getInstance().isPlay())
             openPlayer(-1);
