@@ -51,7 +51,7 @@ Android Studio Tutorial Course
 #### #Lecture 12(170927)
   * Exmaple Project [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/blob/master/Lecture/170927/170927_Android.md)
     * Basic Fragment 1,2
-    * Tap Layout
+    * Tab Layout
 #### #Lecture 13(170928)
   * Example Project
     * View Pager(flip) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/ViewPager_170928)
@@ -69,4 +69,4 @@ Android Studio Tutorial Course
     * Music Player Updated [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer2_171012)
 #### #Lecture 17(171013)
   * Exmaple Project
-    * Music Player Prototype [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer_ProtoType_171013) 
+    * Music Player Prototype [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer_ProtoType_171013)
