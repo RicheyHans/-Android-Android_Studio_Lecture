@@ -67,3 +67,6 @@ Android Studio Tutorial Course
 #### #Lecture 16(171012)
   * Example Project
     * Music Player Updated [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer2_171012)
+#### #Lecture 17(171013)
+  * Exmaple Project
+    * Music Player Prototype [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer_ProtoType_171013) 
