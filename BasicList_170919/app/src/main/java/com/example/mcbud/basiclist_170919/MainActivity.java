@@ -50,7 +50,9 @@ class CustomAdapter extends BaseAdapter{
 
     // 현재 데이터의 총 개수
     @Override
-    public int getCount() { return data.size(); }
+    public int getCount() {
+        return data.size();
+    }
 
     // 현재 뿌려줄 데이터를 리턴해준다.
     @Override
@@ -72,6 +74,7 @@ class CustomAdapter extends BaseAdapter{
     // 아이템이 최초 호출될 경우는 Holder에 위젯들을 담고
     // 홀더를 View에 붙여놓는다.
     // View에 붙어있는 홀더를 가져온다.
+
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         Holder holder = null;
@@ -95,9 +98,6 @@ class CustomAdapter extends BaseAdapter{
         // findviewbyid도 역시 textView 변수를 위한 메모리가 사용된다. 즉, 내렸다 올렸다 하게 되면
         // 이미지 파일이면 엄청 메모리 낭비가 심해진다. -> 지금까지는 view 전체를 재사용했는데, 일부 요소요소를
         // 재사용하기 위해 Holder를 사용하게 된다. 홀더 사용을 위해는 클래스 별도 생성이 필요하다.
-
-
-
 
 
 class Holder{
