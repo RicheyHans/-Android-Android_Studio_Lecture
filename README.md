@@ -68,5 +68,13 @@ Android Studio Tutorial Course
   * Example Project
     * Music Player Updated [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer2_171012)
 #### #Lecture 17(171013)
-  * Exmaple Project
+  * Example Project
     * Music Player Prototype [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/MusicPlayer_ProtoType_171013)
+#### #Lecture 18(171016)
+  * Example Project
+    * Network Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/NetworkBaisc_171016)
+    * JsonData Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/JsonDataBasic_171016)
+#### #Lecture 19(171017)
+  * Example Project
+    * Subway Transfer Station GPS [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/TransferStation_171017)
+    * Bicycle GPS [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Bicycle_171017)
