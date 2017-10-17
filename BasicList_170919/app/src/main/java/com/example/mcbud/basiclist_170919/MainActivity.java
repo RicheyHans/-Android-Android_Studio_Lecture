@@ -48,7 +48,7 @@ class CustomAdapter extends BaseAdapter{
     }
     // 해당 메서드는 대부분 자동으로 호출된다.
 
-    // 현재 데이터의 총 개수
+    // 현재 데이터의 총 개수(ListView 가 어댑터에게 항목의 개수를 물어보는 메서드. 여기 100개있어!)
     @Override
     public int getCount() {
         return data.size();
@@ -75,8 +75,14 @@ class CustomAdapter extends BaseAdapter{
     // 홀더를 View에 붙여놓는다.
     // View에 붙어있는 홀더를 가져온다.
 
+
+    // getView 메서드는 '항목 하나'를 출력하기 위한 View 를 생성해 리턴한다.
+    // 하나의 항목을 출력할 때 마다 getView 를 호출해 리턴된 View 를 리스트 뷰의 해당 위치에 배치
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
+        // 파라미터 position : 생성할 항목의 순서
+        // 파라미터 view : convertView이며, 이전에 생성된 차일드 뷰를 의미. 최초 호출 시 null 이며 이 경우 커스텀 뷰를 새로 생성한다.
+        // 파라미터 viewGroup : parent 이며, 생성되는 뷰가 담길 레이아웃(부모)를 의미. 여기서는 ListView.
         Holder holder = null;
         if(view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.list_item, null);

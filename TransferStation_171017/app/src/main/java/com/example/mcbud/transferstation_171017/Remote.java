@@ -1,4 +1,4 @@
-package com.example.mcbud.jsondatabasic_171016;
+package com.example.mcbud.transferstation_171017;
 
 import android.util.Log;
 
@@ -19,6 +19,7 @@ public class Remote {
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
             // 통신이 성공인지 체크
+            System.out.println("con.getResponseCode()=============="+con.getResponseCode());
             if (con.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 // 여기서 부터는 파일에서 데이터를 가져오는 것과 동일
                 InputStreamReader isr = new InputStreamReader(con.getInputStream());

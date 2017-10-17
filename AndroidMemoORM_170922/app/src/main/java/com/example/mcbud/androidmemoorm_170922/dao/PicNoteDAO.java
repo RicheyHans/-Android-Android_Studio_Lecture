@@ -88,7 +88,5 @@ public class PicNoteDAO {
             e.printStackTrace();
         }
     }
-
-
-
+    
 }

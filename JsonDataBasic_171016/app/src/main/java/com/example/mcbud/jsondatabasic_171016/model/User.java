@@ -5,9 +5,9 @@ package com.example.mcbud.jsondatabasic_171016.model;
  */
 
 public class User {
-    // id, site_admin, avart_url만 사용
+    // 위에 세개만 일단은 사용
     int id;
-    boolean site_admin;
+    String login;
     String avatar_url;
 
     public int getId() {
@@ -20,7 +20,18 @@ public class User {
         return avatar_url;
     }
 
-    String login;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setAvatar_url(String avatar_url) {
+        this.avatar_url = avatar_url;
+    }
+
     String gravatar_id;
     String url;
     String html_url;
@@ -34,7 +45,5 @@ public class User {
     String events_url;
     String received_events_url;
     String type;
-
-
-
+    boolean site_admin;
 }
