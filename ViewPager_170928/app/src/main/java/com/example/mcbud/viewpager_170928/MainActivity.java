@@ -14,10 +14,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+// ViewPager사용하기
 public class MainActivity extends AppCompatActivity {
-/*
-ViewPager 사용하기
- */
 
     ViewPager viewPager;
 
@@ -62,7 +60,6 @@ class CustomAdapter extends PagerAdapter{
     // 전체 개수
     @Override
     public int getCount() {
-
         return data.size();
     }
 
@@ -90,7 +87,6 @@ class CustomAdapter extends PagerAdapter{
     // InstantiateItem에서 return 받은 object가 View인지 검증
     @Override
     public boolean isViewFromObject(View view, Object object) {
-
         return view == object;
     }
 
