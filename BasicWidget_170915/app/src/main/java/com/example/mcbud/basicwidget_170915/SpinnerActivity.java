@@ -35,9 +35,9 @@ public class SpinnerActivity extends AppCompatActivity {
         // 4. 스피너에 리스너를 달아준다
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {      // position : 데이터의 인덱스와 동일하다.
-                String selectedValue = data[position];
-                textView.setText(selectedValue);
+                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {      // position : 데이터의 인덱스와 동일하다.
+                    String selectedValue = data[position];
+                    textView.setText(selectedValue);
             }
 
             @Override

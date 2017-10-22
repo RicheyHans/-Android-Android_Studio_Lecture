@@ -66,6 +66,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.Holder> {
                 }
             });
         }
+
         public void setTitle(String title){
             textTitle.setText(title);
         }
