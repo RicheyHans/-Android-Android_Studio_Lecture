@@ -61,16 +61,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 initStnAdapter(stationNum);
                 break;
             case R.id.btn3rd:
+                stationNum = sl.third.clone();
+                initStnAdapter(stationNum);
                 break;
             case R.id.btn4th:
+                stationNum = sl.fourth.clone();
+                initStnAdapter(stationNum);
                 break;
             case R.id.btn5th:
+                stationNum = sl.fifth.clone();
+                initStnAdapter(stationNum);
                 break;
             case R.id.btn6th:
+                stationNum = sl.sixth.clone();
+                initStnAdapter(stationNum);
                 break;
             case R.id.btn7th:
+                stationNum = sl.seventh.clone();
+                initStnAdapter(stationNum);
                 break;
             case R.id.btn8th:
+                stationNum = sl.eighth.clone();
+                initStnAdapter(stationNum);
                 break;
         }
     }

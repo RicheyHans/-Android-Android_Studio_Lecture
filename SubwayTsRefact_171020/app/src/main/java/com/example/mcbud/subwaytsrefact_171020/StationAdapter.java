@@ -5,6 +5,7 @@ package com.example.mcbud.subwaytsrefact_171020;
  * Created by mcbud on 2017-10-23.
  */
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,13 +58,14 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.Holder> 
         public Holder(View itemView) {
             super(itemView);
             textStn = itemView.findViewById(R.id.textStn);
-            /*
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // 역 리스트 클릭 시 디테일 액티비티로 이동
+                    Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                    intent.putExtra("textStn", textStn.getText());
+                    view.getContext().startActivity(intent);
                 }
-            });*/
+            });
         }
 
         public void setTitle(String string){
