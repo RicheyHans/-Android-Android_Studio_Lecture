@@ -78,3 +78,11 @@ Android Studio Tutorial Course
   * Example Project
     * Subway Transfer Station GPS [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/TransferStation_171017)
     * Bicycle GPS [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Bicycle_171017)
+#### #Lecture 20(171018)
+  * Java Web Server Basic [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/Server_171018)
+#### #Lecture 21(171019)
+  * Example Project
+    * Subway Real-Time Arrival Time(1st Prototype) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/SubwayTS_171019)
+#### #Lecture 22(171020)
+  * Example Project
+    * Subway Real-Time Arrival Time(Refactory) [link](https://github.com/RicheyHans/-Android-Android_Studio_Lecture/tree/master/SubwayTsRefact_171020)
