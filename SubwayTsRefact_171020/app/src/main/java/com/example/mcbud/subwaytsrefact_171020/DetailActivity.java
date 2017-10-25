@@ -56,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         new AsyncTask<Void, Void, String>(){
             @Override
             protected String doInBackground(Void... voids) {
-                String str = Remote.getData("http://swopenapi.seoul.go.kr/api/subway/66795758776d6362373442475a666e/json/realtimeStationArrival/1/10/"+stnText);
+                String str = Remote.getData("http://swopenapi.seoul.go.kr/api/subway/66795758776d6362373442475a666e/json/realtimeStationArrival/1/20/"+stnText);
                 System.out.println(stnText);
                 System.out.println(str);
                 return str;
